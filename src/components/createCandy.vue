@@ -50,7 +50,7 @@ export default {
           },
         })
         .then((response) => {
-          if(response['data'] === Number){
+          if(typeof(response['data']) === "number"){
             this.message = `Your candy is added with ID: ${response['data']}`
           }
         })
