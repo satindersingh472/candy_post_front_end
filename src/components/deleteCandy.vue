@@ -18,7 +18,7 @@ export default {
           url: 'http://127.0.0.1:5000/api/candy',
           method: 'DELETE',
           data: {
-            candy_id: this.result[0],
+            candy_id: this.result[0]
           },
         })
         .then((response) => {
