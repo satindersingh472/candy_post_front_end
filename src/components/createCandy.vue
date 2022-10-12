@@ -52,7 +52,11 @@ export default {
         .then((response) => {
           if(typeof(response['data']) === "number"){
             this.message = `Your candy is added with ID: ${response['data']}`
-          }
+            setTimeout(() => {
+                this.message = undefined
+                this.$emit('recieve_add',response)
+            }, 1500);
+}
         })
         .catch((error) => {
           this.message = `there is an error: ${error}`

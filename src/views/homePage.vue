@@ -1,6 +1,6 @@
 <template>
 <div>
-    <create-candy></create-candy>
+    <create-candy @recieve_add="all_candies" ></create-candy>
   <div class="all_candies">
     <div class="one_candy" v-for="result in results" :key="result['id']">
         <img :src="result[3]" :alt="`image of ${result[1]}`">
