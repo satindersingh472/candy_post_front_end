@@ -7,7 +7,7 @@
         <p>ID: {{result[0]}}</p>
         <p>Name: {{result[1]}}</p>
         <p>Description: {{result[2]}}</p>
-        <delete-candy @delete_response="all_candies" :result="result" ></delete-candy>
+        <delete-candy class="delete_candy" @delete_response="all_candies" :result="result" ></delete-candy>
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@ img{
 }
 .all_candies{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     gap: 20px;
     .one_candy{
         display: grid;
@@ -71,8 +71,13 @@ img{
         gap: 10px;
         box-shadow: 3px 3px 6px lightcoral;
         img{
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .delete_candy{
+          justify-self: center;
+          margin: 10px 0px;
         }
     }
 }
