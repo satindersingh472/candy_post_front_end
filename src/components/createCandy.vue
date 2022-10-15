@@ -1,4 +1,5 @@
 <template>
+<!-- it is a form that will add a new candy -->
   <div class="page">
     <h2>Add new candy</h2>
     <div class="add_candy">
@@ -15,6 +16,7 @@
         <input type="text" ref="image_url" />
       </div>
     </div>
+    <!-- add candy will check if value is entered or not and will show user the appropraite message -->
     <button @click="check_values">Add Candy</button>
     <p v-if="message !== undefined" >{{message}}</p>
   </div>
@@ -24,6 +26,8 @@
 import axios from 'axios'
 export default {
   methods: {
+    // will check the input fields for null or empty string if null or empty then ask the user to enter the value
+    // if filled then send it to the database
     check_values(){
         this.one = this.$refs['name']['value']
         this.two = this.$refs['description']['value']
@@ -37,7 +41,7 @@ export default {
             }, 1500);
         }
     },
-
+  // add candy will send the api request to add candy
     add_candy() {
       axios
         .request({
