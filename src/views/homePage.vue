@@ -4,6 +4,7 @@
   <!-- create candy will listen to recieve add event and trigger the act_candies -->
     <create-candy @recieve_add="all_candies" ></create-candy>
   <div class="all_candies">
+    <h1 v-if="messahe !== undefined">{{message}}</h1>
     <!-- will loop thru results and print the every single one of them  -->
     <div class="one_candy" v-for="result in results" :key="result['id']">
         <img :src="result[3]" :alt="`image of ${result[1]}`">
@@ -37,7 +38,11 @@ export default {
         url: `${process.env.VUE_APP_BASE_DOMAIN}/api/candy`
       })
       .then((response) => {
-        this.results = response['data']
+        if(response['data'].includes('No Results')){
+          this.message = 'No Resutls'
+        }
+        else{
+          this.results = response['data'];        }
       })
       .catch((error) => {
         if (error) {
