@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- this component will delete the candy using the props sent by the homepage -->
     <button @click="delete_candy">Delete</button>
     <p v-if="message !== undefined">{{message}}</p>
   </div>
@@ -12,6 +13,7 @@ export default {
     result: Array,
   },
   methods: {
+    // send the api request
     delete_candy() {
       axios
         .request({
@@ -31,7 +33,7 @@ export default {
           }
         })
         .catch((error) => {
-          error
+          this.message = error;
         })
     },
   },

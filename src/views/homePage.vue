@@ -1,12 +1,16 @@
 <template>
 <div>
+  <!-- display all candies on the page -->
+  <!-- create candy will listen to recieve add event and trigger the act_candies -->
     <create-candy @recieve_add="all_candies" ></create-candy>
   <div class="all_candies">
+    <!-- will loop thru results and print the every single one of them  -->
     <div class="one_candy" v-for="result in results" :key="result['id']">
         <img :src="result[3]" :alt="`image of ${result[1]}`">
         <p>ID: {{result[0]}}</p>
         <p>Name: {{result[1]}}</p>
         <p>Description: {{result[2]}}</p>
+        <!-- delete candy will send the result as a props and listen to delete candy event for some response -->
         <delete-candy class="delete_candy" @delete_response="all_candies" :result="result" ></delete-candy>
     </div>
   </div>
@@ -26,6 +30,7 @@ export default {
   this.all_candies();
   },
   methods: {
+    // all candies will send the api request
     all_candies() {
           axios
       .request({
