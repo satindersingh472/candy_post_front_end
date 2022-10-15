@@ -17,7 +17,7 @@ export default {
     delete_candy() {
       axios
         .request({
-          url: 'http://127.0.0.1:5000/api/candy',
+          url: `${process.env.VUE_APP_BASE_DOMAIN}/api/candy`,
           method: 'DELETE',
           data: {
             candy_id: this.result[0]
